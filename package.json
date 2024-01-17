@@ -1,5 +1,5 @@
 {
-  "name": "sunbird-ed-consumption-ngcomponents",
+  "name": "@dicdikshaorg/common-consumption",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -14,7 +14,7 @@
     "test:ci": "ng test --code-coverage --watch=false --browsers=ChromeHeadless",
     "sonar-scanner": "sonar-scanner"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^11.2.14",
     "@angular/common": "^11.2.14",

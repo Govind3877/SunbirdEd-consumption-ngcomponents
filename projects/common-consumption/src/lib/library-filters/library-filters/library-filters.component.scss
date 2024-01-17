@@ -25,7 +25,9 @@
     overflow-x: auto;
 
     .sb-pills-container {
-      display: inline-flex;
+      // display: inline-flex;
+      display: flex;
+      justify-content: end;
       align-items: center;
       box-sizing: border-box;
       @include padding(calculateRem(16px) calculateRem(16px));
@@ -93,6 +95,7 @@
       min-height: calculateRem(48px);
       background: transparent; //var(--cc-grade-pill-container-bg);
       min-width: 100%;
+      padding-right: 0 !important;
 
       .pill {
 
@@ -142,7 +145,60 @@
           }
         }
       }
-    }
+    }    
+  }
+
+  ::ng-deep select::after {
+    display: none;
+  }
+
+  .dropdownstyle {
+    display: flex;
+    align-items: center;
+
+    .sort-container {
+      padding: 5px;
+
+      .shortname {
+        width: 100px;
+        border: 1px;
+        padding: 6px 7px;
+        display: flex;
+        background-color: #fff;
+        border-radius: 16px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        color: var(--primary-color);
+        font-size: .875rem;
+        
+      }
+
+      .shortDetail {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        right: -30px;
+        top: 66px;
+        width: 146px;
+        background-color: #fff;
+        // padding: 0 10px;
+
+        button.short-option {
+            padding: 10px;
+            width: 100%;
+            background-color: #fff;
+            display: flex;
+            border: 0;
+            color: var(--primary-color);
+        }
+
+        button.short-option:hover{
+          background-color: #DBF0FF; 
+        }       
+      }
+    } 
   }
 
 }

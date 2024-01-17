@@ -1,48 +1,107 @@
 <div class="fixed-container">
     <!-- Library medium filter -->
-    <div *ngIf="layout === LibraryFiltersLayout.SQUARE" class="sb-slider-pills-container">
-        <div class="sb-pills-container sb-medium-pills-container" id="mediumScroll">
-            <div class="pill" *ngFor="let item of filterList; let i = index;" [ngClass]="{'active': item?.selected}"
-                attr.id="medium{{i}}" (click)="selectPill($event, i)" tabindex="0" role="tab" attr.aria-selected="{{item?.selected}}"> {{item.text}} medium
-            </div>
+    <div
+      *ngIf="layout === LibraryFiltersLayout.SQUARE"
+      class="sb-slider-pills-container"
+    >
+      <div class="sb-pills-container sb-medium-pills-container" id="mediumScroll">
+        <div
+          class="pill"
+          *ngFor="let item of filterList; let i = index"
+          [ngClass]="{ active: item?.selected }"
+          attr.id="medium{{ i }}"
+          (click)="selectPill($event, i)"
+          tabindex="0"
+          role="tab"
+          attr.aria-selected="{{ item?.selected }}"
+        >
+          {{ item.text }} medium
         </div>
+      </div>
     </div>
     <!-- Library class/grade filter -->
-    <div *ngIf="layout === LibraryFiltersLayout.ROUND" class="sb-slider-pills-container">
-        <div class="sb-pills-container sb-grade-pills-container" id="gradeScroll">
-            <div class="pill rounded" *ngFor="let item of filterList; let i = index;" role="tab" attr.aria-selected="{{item?.selected}}"
-                [ngClass]="{'active': item?.selected}" attr.id="class{{i}}" (click)="selectPill($event, i)" tabindex="0">
-                {{item.text}}</div>
+    <div
+      *ngIf="layout === LibraryFiltersLayout.ROUND"
+      class="sb-slider-pills-container"
+    >
+      <div class="sb-pills-container sb-grade-pills-container" id="gradeScroll">
+        <div
+          class="pill rounded"
+          *ngFor="let item of filterList; let i = index"
+          role="tab"
+          attr.aria-selected="{{ item?.selected }}"
+          [ngClass]="{ active: item?.selected }"
+          attr.id="class{{ i }}"
+          (click)="selectPill($event, i)"
+          tabindex="0"
+        >
+          {{ item.text }}
         </div>
+      </div>
     </div>
-        <!-- Player page content filters -->
-    <div *ngIf="layout === LibraryFiltersLayout.ROUND_WITH_ICONS" class="sb-slider-pills-container">
-        <div class="sb-pills-container sb-grade-pills-container" id="gradeScroll">
-            <div class="pill rounded rounded-with-icon" *ngFor="let item of filterList; let i = index;" role="tab" attr.aria-selected="{{item?.selected}}"
-                [ngClass]="{'active': item?.selected}" attr.id="mimeType{{i}}" (click)="selectMimeFilter($event, i)" tabindex="0">
-                <ng-container *ngIf="item?.type === TocMimeTypes.VIDEO ">
-                    <i class="icon-svg icon-svg--xs icon-videos" >
-                        <svg class="icon icon-svg--primary">
-                            <use xlink:href="assets/common-consumption/images/sprite.svg#play"></use>
-                        </svg>
-                    </i>
-                </ng-container>
-                <ng-container *ngIf="item?.type === TocMimeTypes.DOCS ">
-                    <i class="icon-svg icon-svg--xs icon-docs" >
-                        <svg class="icon icon-svg--primary">
-                            <use xlink:href="assets/common-consumption/images/sprite.svg#doc"></use>
-                        </svg>
-                    </i>
-                </ng-container>
-                <ng-container *ngIf="item?.type === TocMimeTypes.INTERACTIVE ">
-                    <i class="icon-svg icon-svg--xs icon-touch" >
-                        <svg class="icon icon-svg--primary">
-                            <use xlink:href="assets/common-consumption/images/sprite.svg#touch"></use>
-                        </svg>
-                    </i>
-                </ng-container>
-                <span class="name">{{item.text}}</span>
-            </div>
+    <!-- Player page content filters -->
+    <div
+      *ngIf="layout === LibraryFiltersLayout.ROUND_WITH_ICONS"
+      class="sb-slider-pills-container d-flex"
+    >
+      <div class="sb-pills-container sb-grade-pills-container" id="gradeScroll">
+        <div
+          class="pill rounded rounded-with-icon"
+          *ngFor="let item of filterList; let i = index"
+          role="tab"
+          attr.aria-selected="{{ item?.selected }}"
+          [ngClass]="{ active: item?.selected }"
+          attr.id="mimeType{{ i }}"
+          (click)="selectMimeFilter($event, i)"
+          tabindex="0"
+        >
+          <ng-container *ngIf="item?.type === TocMimeTypes.VIDEO">
+            <i class="icon-svg icon-svg--xs icon-videos">
+              <svg class="icon icon-svg--primary">
+                <use
+                  xlink:href="assets/common-consumption/images/sprite.svg#play"
+                ></use>
+              </svg>
+            </i>
+          </ng-container>
+          <ng-container *ngIf="item?.type === TocMimeTypes.DOCS">
+            <i class="icon-svg icon-svg--xs icon-docs">
+              <svg class="icon icon-svg--primary">
+                <use
+                  xlink:href="assets/common-consumption/images/sprite.svg#doc"
+                ></use>
+              </svg>
+            </i>
+          </ng-container>
+          <ng-container *ngIf="item?.type === TocMimeTypes.INTERACTIVE">
+            <i class="icon-svg icon-svg--xs icon-touch">
+              <svg class="icon icon-svg--primary">
+                <use
+                  xlink:href="assets/common-consumption/images/sprite.svg#touch"
+                ></use>
+              </svg>
+            </i>
+          </ng-container>
+          <span class="name">{{ item.text }}</span>
         </div>
+  
+      </div>
+      <div class="dropdownstyle">
+        <div class="sort-container">
+          <button class="shortname" (click)="showHideList()" (blur)="showList=false">
+              <i class="icon-svg icon-svg--xs icon-docs">
+                  <svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0 12.1429H6.13043V10.2382H0V12.1429ZM0 0.714355V2.61912H18.3913V0.714355H0ZM0 7.38102H12.2609V5.47626H0V7.38102Z" fill="#024F9D"/>
+                  </svg>
+              </i>
+              <span>Sort By</span> 
+          </button>
+          <div class="shortDetail" *ngIf="showList">
+            <button class="short-option most-viw" [class.active]="isActive('Most Viewed')" (click)="selectMimeFilter1('Most Viewed')"> Most Viewed </button>
+            <button class="short-option highest rating" [class.active]="isActive('Most Rated')" (click)="selectMimeFilter1('Most Rated')" >Highest Ratings </button>
+            <button class="short-option newly-added" [class.active]="isActive('Newly Added')" (click)="selectMimeFilter1('Newly Added')"> Newest </button>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>

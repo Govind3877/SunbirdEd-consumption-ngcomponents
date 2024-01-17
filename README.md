@@ -7,7 +7,7 @@ For existing apps, follow these steps to begin using .
 
 ## Step 1: Install the package
 
-    npm install @project-sunbird/common-consumption --save
+    npm install @dicdikshaorg/common-consumption --save
     npm install @project-sunbird/sb-styles --save
 
 ## Step 2: Include the sb-styles and assets in angular.json
@@ -35,7 +35,7 @@ For existing apps, follow these steps to begin using .
 			    
 			    {
 				    "glob": "**/*.*",
-				    "input": "./node_modules/@project-sunbird/common-consumption/assets",
+				    "input": "./node_modules/@dicdikshaorg/common-consumption/assets",
 				    "output": "./assets/common-consumption"
 			    }
 		    
@@ -59,7 +59,7 @@ For existing apps, follow these steps to begin using .
 ## Step 3: Import the modules and components
 Import the NgModule for each component you want to use:
        
-    import { CommonConsumptionModule} from '@project-sunbird/common-consumption';
+    import { CommonConsumptionModule} from '@dicdikshaorg/common-consumption';
     
     @NgModule({
 	    ...
@@ -74,9 +74,9 @@ Import the NgModule for each component you want to use:
 
 Alternatively, you can create a separate NgModule that imports and then re-exports all of the Angular components that you will use in your application. By exporting them again, other modules can simply include your CustomSunbirdComponentsModule wherever components are needed, and automatically get all of the exported modules. A good place for importing/exporting the application-wide modules is the SharedModule.
 
-    import { CardsModule } from '@project-sunbird/common-consumption/card';
+    import { CardsModule } from '@dicdikshaorg/common-consumption/card';
 
-    import { PopoverModule } from '@project-sunbird/common-consumption/popover';
+    import { PopoverModule } from '@dicdikshaorg/common-consumption/popover';
 
 
     @NgModule({

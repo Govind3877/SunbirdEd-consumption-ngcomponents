@@ -15,6 +15,7 @@ export class LibraryFiltersComponent implements OnChanges {
     @Input() layout: LibraryFiltersLayout;
     @Output() selectedFilter: EventEmitter<ISelectedFilter> = new EventEmitter<ISelectedFilter>();
     @Output() selectedMimeType: EventEmitter<any> = new EventEmitter();
+    selectedMimeTypeValue: any ={};
 
     public TocMimeTypesMaster = [
         { name: 'all', value: ['all'] },
@@ -32,7 +33,8 @@ export class LibraryFiltersComponent implements OnChanges {
       ];
 
     filterList: IFilterItem[];
-
+    showList: boolean;
+    activeButton: any;
     get LibraryFiltersLayout() { return LibraryFiltersLayout; }
     get TocMimeTypes() { return TocMimeTypes; }
     
@@ -95,7 +97,6 @@ export class LibraryFiltersComponent implements OnChanges {
 
     selectPill(event: MouseEvent, index: number) {
         this.filterList = this.filterList.map(e => ({ ...e, selected: false }));
-
         try {
             this.filterList[index].selected = true;
             this.selectedFilter.emit({ event: event, data: { ...this.filterList[index], index } });
@@ -118,38 +119,57 @@ export class LibraryFiltersComponent implements OnChanges {
     }
 
     selectMimeFilter(event, index) {
-       let outputType = {};
-        this.filterList = this.filterList.map(e => ({ ...e, selected: false }));
-        try {
-            this.filterList[index].selected = true;
-            this.TocMimeTypesMaster.map(mimeType => {
-                if (mimeType.name === this.filterList[index].type) {
-                    outputType = {
-                        event: event,
-                        data: {
-                            value: mimeType.value,
-                            ...this.filterList[index],
-                            index,
-                        }
-                    };
-                }
-            });
-            this.selectedMimeType.emit({...outputType});
-            // animation code
-            let el: HTMLElement | null = document.getElementById('mimeType' + index);
-            if (el) {
-                el.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'start' });
-            } else {
-                setTimeout(() => {
-                    el = document.getElementById('mimeType' + index);
-                    if (el) {
-                        el.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'start' });
+        this.showList = false;
+            let outputType = {};
+            this.filterList = this.filterList.map(e => ({ ...e, selected: false }));
+            try {
+                this.filterList[index].selected = true;
+                this.TocMimeTypesMaster.map(mimeType => {
+                    if (mimeType.name === this.filterList[index].type) {
+                        outputType = {
+                            event: event,
+                            data: {
+                                value: mimeType.value,
+                                ...this.filterList[index],
+                                index,
+                            }
+                        };
+                        this.selectedMimeTypeValue = outputType;
                     }
-                }, 1000);
+                });
+                this.selectedMimeType.emit({...outputType});
+                // animation code
+                let el: HTMLElement | null = document.getElementById('mimeType' + index);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'start' });
+                } else {
+                    setTimeout(() => {
+                        el = document.getElementById('mimeType' + index);
+                        if (el) {
+                            el.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'start' });
+                        }
+                    }, 1000);
+                }
+    
+            } catch (error) {
+                console.error('Error in selectPill method', error);
             }
+        
+       
+    }
 
-        } catch (error) {
-            console.error('Error in selectPill method', error);
-        }
+    selectMimeFilter1(selectedValue) {
+        this.activeButton = selectedValue;
+        this.showList = false;
+        this.selectedMimeTypeValue.sortBy = selectedValue;
+        this.selectedMimeType.emit({...this.selectedMimeTypeValue});
+    }
+       
+    showHideList() {
+        this.showList = !this.showList;
+    }
+    
+    isActive(buttonName){
+    return this.activeButton === buttonName;
     }
 }

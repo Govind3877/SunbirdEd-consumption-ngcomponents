@@ -68,4 +68,20 @@ export class LibraryCardV2Component implements OnInit, AfterViewInit {
         var indexToDisplay = this.indexToDisplay!=null ? (this.indexToDisplay % 9)+1:2;
         this.svgToDisplay =  "assets/common-consumption/images/abstract_0"+indexToDisplay+".svg";
     }
+    
+    roundNumber(value: number):any{
+        try{
+          if (value >= 1000) {
+            const suffixes = ["", "K", "M", "B", "T"];
+            const suffixNum = Math.floor(("" + value).length / 3);
+            const shortValue = parseFloat((value / Math.pow(1000, suffixNum)).toFixed(2));
+            return shortValue + suffixes[suffixNum];
+          }
+          return value.toString();
+        }
+        catch(e){
+          console.error('Error while rounding number for :', value, e)
+          return 0;
+        }
+      }
 }
