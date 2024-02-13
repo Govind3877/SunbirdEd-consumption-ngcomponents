@@ -94,7 +94,7 @@
     .sb-grade-pills-container {
       min-height: calculateRem(48px);
       background: transparent; //var(--cc-grade-pill-container-bg);
-      min-width: 100%;
+      // min-width: 100%;
       padding-right: 0 !important;
 
       .pill {
@@ -171,6 +171,7 @@
         align-items: center;
         color: var(--primary-color);
         font-size: .875rem;
+        cursor:pointer;
         
       }
 
@@ -192,6 +193,7 @@
             display: flex;
             border: 0;
             color: var(--primary-color);
+            cursor: pointer;
         }
 
         button.short-option:hover{
