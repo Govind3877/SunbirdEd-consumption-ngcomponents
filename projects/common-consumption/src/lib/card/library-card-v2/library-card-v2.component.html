@@ -69,20 +69,6 @@
             </span>
           </div>
         </ng-container>
-
-        <div class="ratingDetails">
-          <ng-container *ngIf="content?.me_averageRating && content?.organisation.length > 0">
-            <div class="sb--card__meta2_data sb__ellipsis avragerating">
-              <span title="{{content?.me_averageRating}}">{{content?.me_averageRating | number:'.1'}}</span>
-              <span><i class="icon star outline" aria-label="course rating"></i></span>
-            </div>
-          </ng-container>  
-          <ng-container *ngIf="content?.me_totalRatingsCount">
-            <div class="sb--card__meta2_data sb__ellipsis totalRating">
-              <span title="{{content?.me_totalRatingsCount}}"> | {{roundNumber(content?.me_totalRatingsCount) || '0'}}</span>
-            </div>
-          </ng-container>
-        </div>
         
         <!-- <div class="sb--card__meta2_data sb__ellipsis" title="{{moreInfoLabel}}:
         {{content?.subject}}" *ngIf="content?.subject"><span class="">{{moreInfoLabel}}:

@@ -208,13 +208,6 @@
 
     .sb--card__meta2 {
       padding: calculateRem(8px) calculateRem(16px);
-      .ratingDetails{
-        display: flex;
-        padding: 5px 0;  
-        i.star{
-          color: var(--primary-color);
-        }
-      }
     }
 
     .sb--card__image-pos {
