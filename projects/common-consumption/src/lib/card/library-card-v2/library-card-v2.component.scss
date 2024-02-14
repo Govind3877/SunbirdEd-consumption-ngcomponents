@@ -3,18 +3,18 @@
 ::ng-deep :root {
   --cc-sbcard-org-text: var(--balck);
   --cc-sbcard-selected-border: var(--primary-color);
-  --cc-sbcard-img-br:var(--white);
+  --cc-sbcard-img-br: var(--white);
   --sbt-pill-hs: 212, 100%;
   --cc-sbcard-data2-bg: #E5EDF5;
   --cc-sbcard-data2-bg-active: #0076FE;
   --cc-sbcard-data1-bg: #F0E5F5;
-  --cc-sbcard-data1-bg-active:#6236FF;
+  --cc-sbcard-data1-bg-active: #6236FF;
   --cc-sbcard-data0-bg: #E0F5EA;
-  --cc-sbcard-data0-bg-active:#008840;
+  --cc-sbcard-data0-bg-active: #008840;
   --cc-sbcard-moreinfo-bg: none; //var(--white)
   --cc-sbcard-type-bg: var(--black);
   --cc-sbcard-type-text: var(--white);
-  --cc-sbcard-type-br:var(--gray-200);
+  --cc-sbcard-type-br: var(--gray-200);
 }
 
 /* sb card component css */
@@ -56,6 +56,7 @@
       top: 50%;
       right: calculateRem(16px);
       z-index: 1000;
+      display: none;
 
       html[dir="rtl"] & {
         left: calculateRem(16px);
@@ -74,6 +75,84 @@
       border-radius: 0.25rem;
       background-color: var(--cc-sbcard-selected-bg);
     }
+
+    .sb--card_book-img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 117px;
+      min-height: 170px;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+
+      img {
+        border-radius: 1rem !important;
+        width: 117px;
+        height: 170px;
+      }
+    }
+
+
+    .sb--card_wrap {
+      display: flex;
+      width: 100%;
+      overflow: hidden;
+      padding: 4px 10px;
+      max-width: 350px;
+    }
+
+    .sb--card__meta1 {
+      font-size: 9px;
+    }
+
+    span.book-icon {
+      margin-right: 5px;
+    }
+
+    
+    .icon_wrap{
+      display: flex;
+      height: 23px;
+      width: 23px;
+      border-radius: 50%;
+      justify-content: center;
+      align-items: center;
+      margin-right: 7px;
+      &.subject-icon {
+        background-color: #E0F9F7;
+      }
+      &.publish-icon {
+        background-color: #fff1ed;
+      }
+    }
+
+    .sb__ellipsis_wrap {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      
+      span{
+        font-size: 12px;
+        font-weight: 500;
+        color: #696f88;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 20ch;
+      }
+    }
+
+    .book-img-wrap {
+      display: flex;
+      width: 40%;
+    }
+
+    .book-infos {
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+    }
   }
 
   .sb--card.sb--card--theme2 {
@@ -85,6 +164,7 @@
       position: absolute;
       bottom: 0px;
       right: calculateRem(24px);
+      display: none;
 
       html[dir="rtl"] & {
         left: calculateRem(24px);
@@ -109,24 +189,32 @@
         object-fit: cover;
       }
     }
+    .sb--card_book-infos{
+      width: 100%;
+    }
 
     .sb--card__main-area {
-      margin: calculateRem(16px) calculateRem(16px) calculateRem(8px);
+      margin: 1rem 1rem 15px 10px;
       height: auto;
       position: relative;
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
 
       .sb--card__type {
 
-        margin-left: calculateRem(-16px);
+        // margin-left: calculateRem(-16px);
         padding-left: 8px;
         position: absolute;
         background: var(--cc-sbcard-type-bg);
         height: 1.25rem;
         color: var(--cc-sbcard-type-text);
-        font-size:calculateRem(11px);
+        font-size: calculateRem(11px);
         display: flex;
         align-items: center;
         text-transform: uppercase;
+        margin:1rem 0 0 0;
 
         html[dir="rtl"] & {
           margin-right: -1rem;
@@ -154,11 +242,16 @@
     }
 
     .sb--card__info {
-      padding: 0rem calculateRem(16px);
+      padding: 0 0 0 10px;
+
+      // display: flex;  
+      // flex-direction: column;
     }
 
     .sb--card__title {
       margin-right: calculateRem(88px);
+      margin-right: 0;
+      color: #333333;
 
       html[dir="rtl"] & {
         margin-left: calculateRem(88px);
@@ -168,18 +261,22 @@
 
     .sb--card__meta {
       height: calculateRem(40px);
+      padding-top: 5px;
       // align-items: flex-start;
-      display: flex;
-      align-items: center;
+      // display: flex;
+      // align-items: center;
     }
 
     .sb--card__meta1 {
-      height: calculateRem(56px);
+      // height: calculateRem(56px);
       flex-wrap: wrap;
       margin-top: calculateRem(8px);
+      border-bottom: 1px solid #F3F4F6;
+      font-size: 9px;
 
       .data_1,
-      .data_2,.data_0 {
+      .data_2,
+      .data_0 {
         border-radius: calculateRem(8px);
         font-size: calculateRem(12px);
         padding: 0px calculateRem(8px);
@@ -188,26 +285,52 @@
         margin: 0px calculateRem(8px) calculateRem(8px) 0px;
         white-space: nowrap;
       }
+
       .data_0 {
-        background: var(--cc-sbcard-data0-bg);
+        background: transparent;
+        // background: var(--cc-sbcard-data0-bg);
         color: var(--cc-sbcard-data0-bg-active);
       }
+
       .data_1 {
-        background: var(--cc-sbcard-data1-bg);
+        background: transparent;
+        // background: var(--cc-sbcard-data1-bg);
         color: var(--cc-sbcard-data1-bg-active);
       }
+
       .data_2 {
-        background: var(--cc-sbcard-data2-bg);
+        background: transparent;
+        // background: var(--cc-sbcard-data2-bg);
         color: var(--cc-sbcard-data2-bg-active);
 
         &:last-child {
           margin-right: 0px;
         }
       }
+
+      span {
+        &:not(:last-child) {
+          border-right: 1px solid #EBEBEB;
+        }
+      
+        border-radius: 0 !important;
+        font-size: 9px !important;
+        padding: 0 5px !important;
+        margin: 0 !important;
+      }
     }
 
     .sb--card__meta2 {
-      padding: calculateRem(8px) calculateRem(16px);
+      padding: 8px 0 0 10px;
+
+      .ratingDetails {
+        display: flex;
+        padding: 5px 0;
+
+        i.star {
+          color: var(--primary-color);
+        }
+      }
     }
 
     .sb--card__image-pos {
@@ -220,3 +343,4 @@
     }
   }
 }
+

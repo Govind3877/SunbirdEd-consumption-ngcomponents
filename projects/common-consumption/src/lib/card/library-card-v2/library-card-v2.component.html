@@ -16,138 +16,168 @@
       </g>
     </g>
   </svg>
-  <div class="sb--card__main-area">
-    <!-- card img -->
-    <div [ngClass]="getClassForImage()">
-      <div class="img-container">
+  <div class="sb--card_wrap">
+    <div class="sb--card_book-img-wrap">
+      <div class="sb--card_book-img">
         <img [src]="cardImg" alt="">
       </div>
     </div>
-    <div class="sb--card__svg-area">
-      <img [src]="svgToDisplay" alt=""/>
-    </div>
-    <div class="sb--card__type" *ngIf="content?.primaryCategory || content?.contentType">{{content?.primaryCategory || content?.contentType}}</div>
-  </div>
 
-  <!-- card mobile view details -->
-  <div class="sb--card__info">
-    <div class="sb--card__meta">
-      <h4 class="sb--card__title sb__ellipsis sb__ellipsis--two text-left flex-basis-1" title="{{content?.name}}">
-        <bdi>{{content?.name}}</bdi></h4>
-      <a *ngIf="isMenu" role="button" aria-label="View more actions menu" class="menu" (click)="onMenuClick($event);$event.stopPropagation()"></a>
-    </div>
-    <div class="sb--card__meta1 text-left">
-      <ng-container *ngIf="content?.organisation && content?.organisation.length > 0">
-        <span class="data_0 mr-8 organisation" title="{{content?.organisation[0]}}">{{content?.organisation[0]}}</span>
-        <span class="data_0 mr-8" title="{{content?.organisation}}" *ngIf="content?.organisation.length > 1">+{{content?.organisation.length-1}}</span>
-      </ng-container>
-      <ng-container *ngIf="content?.medium && content?.medium.length > 0">
-        <span class="data_1 mr-8 medium" title="{{content?.medium[0]}}">{{content?.medium[0]}}</span>
-        <span class="data_1 mr-8" title="{{content?.medium}}" *ngIf="content?.medium.length > 1">+{{content?.medium.length-1}}</span>
-      </ng-container>
-      <ng-container *ngIf="content?.gradeLevel && content?.gradeLevel.length > 0">
-        <span class="data_2" title="{{content?.gradeLevel[0]}}">{{content?.gradeLevel[0]}}</span>
-        <span class="data_2" title="{{content?.gradeLevel}}" *ngIf="content?.gradeLevel.length > 1">+{{content?.gradeLevel.length-1}}</span>
-      </ng-container>
-    </div>
-  </div>
-  <!-- content for only desktop -->
-  <div *ngIf="type === LibraryCardTypes.DESKTOP_TEXTBOOK || type === LibraryCardTypes.PORTAL_QRCODE_FLATRESULT">
-    <div class="sb--card__moreinfo">
-      <!-- other meta info subject, publisher/organizer etc -->
-      <div class="sb--card__meta2 text-left">
-        <ng-container *ngIf="content?.subject && content?.subject.length > 0">
-          <div class="sb--card__meta2_data sb__ellipsis subject">
-            <span>Subject: </span> <span title="{{content?.subject[0]}}">{{content?.subject[0]}}</span> <span class="data_1 mr-8" title="{{content?.subject}}" *ngIf="content?.subject.length > 1"> +{{content?.subject.length-1}}
-            </span>
-          </div>
-        </ng-container>
-        <ng-container *ngIf="content?.organisation && content?.organisation.length > 0">
-          <div class="sb--card__meta2_data sb__ellipsis organisation">
-            <span>Publisher: </span> <span title="{{content?.organisation[0]}}">{{content?.organisation[0]}}</span>
-            <span class="data_1 mr-8" title="{{content?.organisation}}" *ngIf="content?.organisation.length > 1"> +{{content?.organisation.length-1}}
-            </span>
-          </div>
-        </ng-container>
-        
-        <!-- <div class="sb--card__meta2_data sb__ellipsis" title="{{moreInfoLabel}}:
+    <div class="sb--card_book-infos">
+      <div class="sb--card__main-area">
+        <div class="sb--card__type" *ngIf="content?.primaryCategory || content?.contentType"><span class="book-icon"><img src="assets/images/menu_book.svg" alt="book"></span>{{content?.primaryCategory
+          || content?.contentType}}</div>
+      </div>
+
+
+
+      <!-- card mobile view details -->
+      <div class="sb--card__info">
+        <div class="sb--card__meta">
+          <h4 class="sb--card__title sb__ellipsis sb__ellipsis--two text-left flex-basis-1" title="{{content?.name}}">
+            <bdi>{{content?.name}}</bdi>
+          </h4>
+          <a *ngIf="isMenu" role="button" aria-label="View more actions menu" class="menu"
+            (click)="onMenuClick($event);$event.stopPropagation()"></a>
+        </div>
+        <div class="sb--card__meta1 text-left">
+          <ng-container *ngIf="content?.organisation && content?.organisation.length > 0">
+            <span class="data_0 mr-8 organisation"
+              title="{{content?.organisation[0]}}"> Board: {{content?.organisation[0]}}</span>
+            <span class="data_0 mr-8" title="{{content?.organisation}}"
+              *ngIf="content?.organisation.length > 1">+{{content?.organisation.length-1}}</span>
+          </ng-container>
+          <ng-container *ngIf="content?.medium && content?.medium.length > 0">
+            <span class="data_1 mr-8 medium" title="{{content?.medium[0]}}">Medium: {{content?.medium[0]}}</span>
+            <span class="data_1 mr-8" title="{{content?.medium}}"
+              *ngIf="content?.medium.length > 1">+{{content?.medium.length-1}}</span>
+          </ng-container>
+          <ng-container *ngIf="content?.gradeLevel && content?.gradeLevel.length > 0">
+            <span class="data_2" title="{{content?.gradeLevel[0]}}">{{content?.gradeLevel[0]}}</span>
+            <span class="data_2" title="{{content?.gradeLevel}}"
+              *ngIf="content?.gradeLevel.length > 1">+{{content?.gradeLevel.length-1}}</span>
+          </ng-container>
+        </div>
+      </div>
+      <!-- content for only desktop -->
+      <div *ngIf="type === LibraryCardTypes.DESKTOP_TEXTBOOK || type === LibraryCardTypes.PORTAL_QRCODE_FLATRESULT">
+        <div class="sb--card__moreinfo">
+          <!-- other meta info subject, publisher/organizer etc -->
+          <div class="sb--card__meta2 text-left">
+            <ng-container *ngIf="content?.subject && content?.subject.length > 0">
+              <div class="sb--card__meta2_data sb__ellipsis subject sb__ellipsis_wrap">
+                <span class="subject-icon icon_wrap"><img src="assets/images/desc-icon.svg"></span>
+                <span>Subject: </span> <span title="{{content?.subject[0]}}">{{content?.subject[0]}}</span> <span
+                  class="data_1 mr-8" title="{{content?.subject}}" *ngIf="content?.subject.length > 1">
+                  +{{content?.subject.length-1}}
+                </span>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="content?.organisation && content?.organisation.length > 0">
+              <div class="sb--card__meta2_data sb__ellipsis organisation sb__ellipsis_wrap">
+                <span class="publish-icon icon_wrap"><img src="assets/images/publish.svg"></span>
+                <span>Publisher: </span> <span title="{{content?.organisation[0]}}">{{content?.organisation[0]}}</span>
+                <span class="data_1 mr-8" title="{{content?.organisation}}" *ngIf="content?.organisation.length > 1">
+                  +{{content?.organisation.length-1}}
+                </span>
+              </div>
+            </ng-container>
+
+            <!-- <div class="ratingDetails">
+              <ng-container *ngIf="content?.me_averageRating && content?.organisation.length > 0">
+                <div class="sb--card__meta2_data sb__ellipsis avragerating">
+                  <span title="{{content?.me_averageRating}}">{{content?.me_averageRating | number:'.1'}}</span>
+                  <span><i class="icon star outline" aria-label="course rating"></i></span>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="content?.me_totalRatingsCount">
+                <div class="sb--card__meta2_data sb__ellipsis totalRating">
+                  <span title="{{content?.me_totalRatingsCount}}"> | {{roundNumber(content?.me_totalRatingsCount) ||
+                    '0'}}</span>
+                </div>
+              </ng-container>
+            </div> -->
+
+            <!-- <div class="sb--card__meta2_data sb__ellipsis" title="{{moreInfoLabel}}:
         {{content?.subject}}" *ngIf="content?.subject"><span class="">{{moreInfoLabel}}:
             {{content?.subject}}</span></div> -->
-        <!-- <div class="sb--card__org sb__ellipsis" title="{{content?.organisation}}" *ngIf="content?.organisation"><bdi>{{content?.organisation}}</bdi></div> -->
+            <!-- <div class="sb--card__org sb__ellipsis" title="{{content?.organisation}}" *ngIf="content?.organisation"><bdi>{{content?.organisation}}</bdi></div> -->
+          </div>
+          <!-- other meta info Badge and card category Book, learn, practice -->
+          <div class="sb--card__tags">
+            <span class="sb--card__badge" *ngIf="content?.badgeAssertions"><img
+                [src]="content?.badgeAssertions[0]?.badgeClassImage" alt="" title="" /></span>
+            <!-- <span class="sb--card__type" *ngIf="content?.contentType">{{content?.contentType}}</span> -->
+          </div>
+        </div>
+        <div *ngIf="type === LibraryCardTypes.PORTAL_QRCODE_FLATRESULT">
+          <div>
+            <button class="sb-btn sb-btn-primary sb-btn-normal w-100 border-top-r-left-right">
+              <i class="icon-svg icon-svg--xxs icon-videos mr-4">
+                <svg class="icon icon-svg--white">
+                  <use xlink:href="assets/common-consumption/images/sprite.svg#play"></use>
+                </svg>
+              </i> {{btnlabel}} </button>
+          </div>
+        </div>
       </div>
-      <!-- other meta info Badge and card category Book, learn, practice -->
-      <div class="sb--card__tags">
-        <span class="sb--card__badge" *ngIf="content?.badgeAssertions"><img
-            [src]="content?.badgeAssertions[0]?.badgeClassImage" alt="" title="" /></span>
-        <!-- <span class="sb--card__type" *ngIf="content?.contentType">{{content?.contentType}}</span> -->
+
+      <!-- Qr code card -->
+      <div *ngIf="type === LibraryCardTypes.QRCODE_RESULT">
+        <!-- Section area if not available it will be hidden -->
+        <div class="sb--card__moreinfo" *ngIf="section !== null">
+          <div class="sb--card__meta2 text-left">
+            <div class="sb--card__meta2_data sb__ellipsis sb__ellipsis--two" *ngIf="section">
+              <span class="label">{{moreInfoLabel}}: </span>
+              <span class="value">{{section}}</span>
+            </div>
+          </div>
+        </div>
       </div>
+      <!-- <ng-content select=".card-hover">
+    
+  </ng-content> -->
+    </div>
+
+    <ng-container
+      *ngTemplateOutlet="gridTemplate; context: {$implicit: content?.hoverData, hoverData: content?.hoverData, content:content}"
+      class="card-hover">
+    </ng-container>
+  </div>
+
+  <div class="sb--card sb--card--theme2" *ngIf="isLoading" tabindex="0" role="button">
+    <!-- card img -->
+    <div class="sb--card__main-area">
+      <div [ngClass]="getClassForImage()">
+        <div class="img-container loading-animation">
+          <img [src]="cardImg" alt="">
+        </div>
+      </div>
+      <div class="sb--card__svg-area loading-animation">
+      </div>
+    </div>
+    <!-- card mobile view details -->
+    <div class="sb--card__info">
+      <h4 class="sb--card__title loading-animation sb--card--highlighter" style="width:50%;"></h4>
+      <div class="sb--card__meta text-left">
+        <span class="data_1 ellipsis loading-animation sb--card--highlighter"></span>
+      </div>
+    </div>
+    <div class="sb--card__moreinfo" style="display:block;"
+      *ngIf="type === LibraryCardTypes.DESKTOP_TEXTBOOK || type === LibraryCardTypes.QRCODE_RESULT || type === LibraryCardTypes.PORTAL_QRCODE_FLATRESULT">
+      <div class="sb--card__meta2 text-left" style="float:left;width:60%">
+        <div class="label loading-animation sb--card--highlighter" style="width:80%;"></div>
+        <div class="value loading-animation sb--card--highlighter" style="width:60%;"></div>
+      </div>
+      <div class="sb--card__tags" style="float:right;width:30%;margin-top: 15px;">
+        <div class="label loading-animation sb--card--highlighter" style="width:80%;"></div>
+      </div>
+      <div style="clear:both;"></div>
     </div>
     <div *ngIf="type === LibraryCardTypes.PORTAL_QRCODE_FLATRESULT">
       <div>
-        <button class="sb-btn sb-btn-primary sb-btn-normal w-100 border-top-r-left-right">
-          <i class="icon-svg icon-svg--xxs icon-videos mr-4">
-            <svg class="icon icon-svg--white">
-              <use xlink:href="assets/common-consumption/images/sprite.svg#play"></use>
-            </svg>
-          </i> {{btnlabel}} </button>
+        <div class="label loading-animation sb--card--highlighter" style="width:100%;"></div>
       </div>
     </div>
-  </div>
 
-  <!-- Qr code card -->
-  <div *ngIf="type === LibraryCardTypes.QRCODE_RESULT">
-    <!-- Section area if not available it will be hidden -->
-    <div class="sb--card__moreinfo" *ngIf="section !== null">
-      <div class="sb--card__meta2 text-left">
-        <div class="sb--card__meta2_data sb__ellipsis sb__ellipsis--two" *ngIf="section">
-          <span class="label">{{moreInfoLabel}}: </span>
-          <span class="value">{{section}}</span>
-        </div>
-      </div>
-    </div>
   </div>
-  <!-- <ng-content select=".card-hover">
-    
-  </ng-content> -->
-  <ng-container
-    *ngTemplateOutlet="gridTemplate; context: {$implicit: content?.hoverData, hoverData: content?.hoverData, content:content}"
-    class="card-hover">
-  </ng-container>
-</div>
-
-<div class="sb--card sb--card--theme2" *ngIf="isLoading" tabindex="0" role="button">
-  <!-- card img -->
-  <div class="sb--card__main-area">
-    <div [ngClass]="getClassForImage()">
-      <div class="img-container loading-animation">
-        <img [src]="cardImg" alt="">
-      </div>
-    </div>
-    <div class="sb--card__svg-area loading-animation">
-    </div>
-  </div>
-  <!-- card mobile view details -->
-  <div class="sb--card__info">
-    <h4 class="sb--card__title loading-animation sb--card--highlighter" style="width:50%;"></h4>
-    <div class="sb--card__meta text-left">
-      <span class="data_1 ellipsis loading-animation sb--card--highlighter"></span>
-    </div>
-  </div>
-  <div class="sb--card__moreinfo" style="display:block;"
-    *ngIf="type === LibraryCardTypes.DESKTOP_TEXTBOOK || type === LibraryCardTypes.QRCODE_RESULT || type === LibraryCardTypes.PORTAL_QRCODE_FLATRESULT">
-    <div class="sb--card__meta2 text-left" style="float:left;width:60%">
-      <div class="label loading-animation sb--card--highlighter" style="width:80%;"></div>
-      <div class="value loading-animation sb--card--highlighter" style="width:60%;"></div>
-    </div>
-    <div class="sb--card__tags" style="float:right;width:30%;margin-top: 15px;">
-      <div class="label loading-animation sb--card--highlighter" style="width:80%;"></div>
-    </div>
-    <div style="clear:both;"></div>
-  </div>
-  <div *ngIf="type === LibraryCardTypes.PORTAL_QRCODE_FLATRESULT">
-    <div>
-      <div class="label loading-animation sb--card--highlighter" style="width:100%;"></div>
-    </div>
-  </div>
-
-</div>
