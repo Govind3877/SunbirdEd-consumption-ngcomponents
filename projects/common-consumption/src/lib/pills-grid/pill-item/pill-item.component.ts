@@ -27,4 +27,16 @@ export class PillItemComponent {
             this.onSelect(this, event);
         }
     }
+
+    formetText(name: string): string {
+        if(name.toLowerCase() === 'cbse training'){
+            return 'CBSE Training'
+        }else if(name.toLowerCase() === 'cpd'){
+            return 'CPD';
+        }
+        else{
+            return name;
+        }
+        
+      }
 }
