@@ -38,6 +38,11 @@
     border-radius: calculateRem(2px);
     min-width:350px;
     max-width: 350px;
+    width: 350px;
+    max-height: 190px;
+    min-height: 190px;
+    align-items: center;
+    height: 100%;
 
     &:hover {
       transform: translate(0, 0px);
