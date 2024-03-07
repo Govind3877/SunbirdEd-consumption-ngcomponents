@@ -36,9 +36,9 @@
     border: 0px;
     contain: content;
     border-radius: calculateRem(2px);
-    min-width:350px;
-    max-width: 350px;
-    width: 350px;
+    min-width:306px;
+    max-width: 306px;
+    width: 306px;
     max-height: 190px;
     min-height: 190px;
     align-items: center;
@@ -92,10 +92,10 @@
     &__title {
 
       color: var(--cc-sbcard-title);
-      font-size: calculateRem(14px);
+      font-size: 12px;
       margin: 0px;
       line-height: normal;
-      line-height: calculateRem(20px);
+      line-height: 1.25rem;
     }
 
     &__meta1 {
@@ -106,7 +106,7 @@
       flex-direction: row;
       align-items: center;
       flex: 1;
-      line-height: calculateRem(20px);
+      line-height: 1.15rem;
       margin-top: calculateRem(4px);
     }
 
@@ -203,10 +203,15 @@
       &:before {
         content: "";
         width: 0;
-        height: 0;
-        border-width: calculateRem(10px) calculateRem(5px);
-        border-style: solid;
-        border-color: var(--cc-sbcard-type-br) var(--cc-sbcard-type-br) var(--cc-sbcard-type-br) transparent;
+        // height: 0;
+        // border-width: calculateRem(10px) calculateRem(5px);
+        // border-style: solid;
+        // border-color: var(--cc-sbcard-type-br) var(--cc-sbcard-type-br) var(--cc-sbcard-type-br) transparent;
+        height: 100%;
+        border-left: 0.4rem solid transparent;
+        border-bottom: 10px solid var(--cc-sbcard-type-br);
+        border-right: 0.3125rem solid var(--cc-sbcard-type-br);
+        border-top: 10px solid var(--cc-sbcard-type-br);
         position: absolute;
         left: -10px;
 

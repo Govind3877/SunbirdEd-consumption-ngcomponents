@@ -67,7 +67,7 @@
             <ng-container *ngIf="content?.subject && content?.subject.length > 0">
               <div class="sb--card__meta2_data sb__ellipsis subject sb__ellipsis_wrap">
                 <span class="subject-icon icon_wrap"><img src="assets/images/desc-icon.svg"></span>
-                <span>Subject: </span> <span title="{{content?.subject[0]}}">{{content?.subject[0]}}</span> <span
+                <span>Subject :&nbsp;</span> <span title="{{content?.subject[0]}}">{{content?.subject[0]}}</span> <span
                   class="data_1 mr-8" title="{{content?.subject}}" *ngIf="content?.subject.length > 1">
                   +{{content?.subject.length-1}}
                 </span>
@@ -76,7 +76,7 @@
             <ng-container *ngIf="content?.organisation && content?.organisation.length > 0">
               <div class="sb--card__meta2_data sb__ellipsis organisation sb__ellipsis_wrap">
                 <span class="publish-icon icon_wrap"><img src="assets/images/publish.svg"></span>
-                <span>Publisher: </span> <span title="{{content?.organisation[0]}}">{{content?.organisation[0]}}</span>
+                <span>Publisher :&nbsp;</span> <span title="{{content?.organisation[0]}}">{{content?.organisation[0]}}</span>
                 <span class="data_1 mr-8" title="{{content?.organisation}}" *ngIf="content?.organisation.length > 1">
                   +{{content?.organisation.length-1}}
                 </span>
