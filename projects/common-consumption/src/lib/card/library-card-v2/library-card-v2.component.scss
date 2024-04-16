@@ -132,7 +132,6 @@
     .sb__ellipsis_wrap {
       display: flex;
       align-items: center;
-      margin-bottom: 10px;
       
       span{
         font-size: 10px;
@@ -245,6 +244,7 @@
 
     .sb--card__moreinfo {
       background: var(--cc-sbcard-moreinfo-bg);
+      min-height: unset!important;
     }
 
     .sb--card__info {
@@ -255,8 +255,9 @@
       margin-right: calculateRem(88px);
       margin-right: 0;
       color: #333333;
-      max-width: 25ch;
-     -webkit-line-clamp: 2;
+      max-width: 20ch;
+     -webkit-line-clamp: 3;
+     
 
       html[dir="rtl"] & {
         margin-left: calculateRem(88px);
@@ -265,34 +266,40 @@
     }
 
     .sb--card__meta {
-      height: 2.5rem;
-      padding-top: 5px;
-      padding-left: 2px !important;
+      min-height: 2.5rem;
+      padding: 5px 0 5px 2px;
+      border-bottom: 1px solid#dadce1;
     }
 
     .sb--card__meta1 {
       flex-wrap: wrap;
       margin-top: 3px;
-      border-bottom: 1px solid#dadce1;
+      display: block;
+      // border-bottom: 1px solid#dadce1;
       font-size: 9px;
       padding-bottom: 3px;
+      line-height: 1rem !important;
 
       .data_1,
       .data_2,
       .data_0 {
         border-radius: calculateRem(8px);
-        font-size: calculateRem(12px);
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 10px;
         padding: 0px calculateRem(8px);
         width: auto;
         flex: initial;
-        margin: 0px calculateRem(8px) calculateRem(8px) 0px;
+        margin: 0px calculateRem(8px) calculateRem(8px) calculateRem(3px);
         white-space: nowrap;
+
       }
 
       .data_0 {
         background: transparent;
         // background: var(--cc-sbcard-data0-bg);
         color: var(--cc-sbcard-data0-bg-active);
+        margin-top: 10px;
       }
 
       .data_1 {
@@ -313,7 +320,7 @@
 
       span {
         &:not(:last-child) {
-          border-right: 1px solid #dadce1;
+          border-left: 1px solid #dadce1;
         }
         &:first-child {
           // padding-left: 1px !important;
@@ -324,14 +331,16 @@
         }
       
         border-radius: 0 !important;
-        font-size: 8px !important;
-        padding: 0 3px !important;
-        margin: 0 !important;
+        font-size: 10px !important;
+        padding: 0 8px 0 9px !important;
+        margin-left: 5px !important;
+        border-left: 1px solid #dadce1;
       }
     }
 
     .sb--card__meta2 {
       padding: 8px 0 0 10px;
+      justify-content: unset !important;
 
       .ratingDetails {
         display: flex;
