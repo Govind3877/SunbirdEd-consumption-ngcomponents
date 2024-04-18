@@ -97,14 +97,14 @@
         <div class="sb--card__meta1 text-left">
           <ng-container *ngIf="content?.organisation && content?.organisation.length > 0">
             <p class="data_0 mr-8 organisation"
-              title="{{content?.organisation[0]}}"> Board: {{content?.organisation[0]}}
+              title="{{content?.organisation[0]}}"> Board :&nbsp;{{content?.organisation[0]}}
               <span class="data_0 mr-8" title="{{content?.organisation}}"
               *ngIf="content?.organisation.length > 1">+{{content?.organisation.length-1}}</span>
             </p>
             
           </ng-container>
           <ng-container *ngIf="content?.medium && content?.medium.length > 0">
-            <p class="data_1 mr-8 medium" title="{{content?.medium[0]}}">Medium: {{content?.medium[0]}}
+            <p class="data_1 mr-8 medium" title="{{content?.medium[0]}}">Medium :&nbsp;{{content?.medium[0]}}
               <span class="data_1 mr-8" title="{{content?.medium}}"
               *ngIf="content?.medium.length > 1">+{{content?.medium.length-1}}</span>
             </p>

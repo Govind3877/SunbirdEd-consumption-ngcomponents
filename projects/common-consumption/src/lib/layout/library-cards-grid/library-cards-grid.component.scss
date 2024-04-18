@@ -100,10 +100,9 @@
   }
 
   .cards-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    // justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
     margin: -1.5rem -.5rem 0 -.5rem;
     .item {
       @include padding(0, calculateRem(8px), 0, calculateRem(8px));
@@ -207,4 +206,15 @@
   right: 0;
   margin-top: -1.5rem;
  }
+}
+@media (min-width: 768px) and (max-width: 1439px){
+  .cards-container {
+       grid-template-columns: repeat(2, 1fr)!important;
+       }
+}
+@media (min-width: 1440px){
+  .cards-container {
+       grid-template-columns: repeat(3, 1fr);
+       grid-gap: 1rem;
+      }
 }
