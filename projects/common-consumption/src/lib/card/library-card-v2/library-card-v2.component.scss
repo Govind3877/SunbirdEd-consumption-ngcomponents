@@ -168,7 +168,7 @@
     border-radius: calculateRem(24px);
     // box-shadow: var(--sbt-box-shadow-6px);
     box-shadow: 0px 4px 20px 0px rgba(159, 159, 159, 0.27);
-
+    height: 100vh!important;
     overflow: hidden;
 
     .sb--card-svg-tail {
@@ -302,15 +302,18 @@
         padding: 0px calculateRem(8px);
         width: auto;
         flex: initial;
-        white-space: nowrap;
+        white-space: normal;
 
       }
 
       .data_0 {
         background: transparent;
-        // background: var(--cc-sbcard-data0-bg);
         color: var(--cc-sbcard-data0-bg-active);
         margin-top: 10px;
+        max-width: 28ch;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       .data_1 {
