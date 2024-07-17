@@ -10,22 +10,53 @@
   --cc-sblabel-badge-text: var(--secondary-color);
 }
 
+.sb--card{
+  justify-content: center;
+  .sb--card__main-area{
+    width: 100%;
+  }
+  .sb--card__info{
+    font-size: 12px;
+    line-height: 19px;
+    text-transform: capitalize;
+    .group-card{
+      margin-bottom: 5px;
+    }
+    .role-name{
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+
+}
+
 .sb--card__img {
+    height: 130px !important;
+    width: 110px !important;
+    display: flex;
+    flex: unset !important;
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-left: 15px !important;
   .img-container--label {
 
     display: flex;
     justify-content: center;
     align-items: center;
     text-transform: capitalize;
-    background-color: var(--cc-sbcard-img-label-bg);
+    background: linear-gradient(178.43deg, #005DA3 1.33%, #4729A3 87.95%);
     color: var(--cc-sbcard-img-label);
     position: relative;
+    height: 130px !important;
+    width: 110px !important;
+    border-radius: 4px;
 
     label {
       margin-bottom: 0px;
       padding-bottom: 0px;
-      font-size: calculateRem(21px);
+      font-size: calculateRem(32px);
       font-weight: bold;
+      color: #fff;
     }
 
     .img-container--badge {

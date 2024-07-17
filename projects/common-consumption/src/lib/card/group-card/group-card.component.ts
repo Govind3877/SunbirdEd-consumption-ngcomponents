@@ -34,14 +34,14 @@ export class GroupCardComponent implements OnInit {
   onClick(event: MouseEvent) {
     this.cardClick.emit({ event: event, data: this.group });
   }
-  fetchStyle() {
-    return {
-      "background-color":this.cardBgColor!=null?this.cardBgColor:"#b3ebd7"
-    };
-  }
-  fetchInitialStyle() {
-    return {
-      "color":this.cardTitleColor!=null?this.cardTitleColor:"green"
-    };
-  }
+  // fetchStyle() {
+  //   return {
+  //     "background-color":this.cardBgColor!=null?this.cardBgColor:"#b3ebd7"
+  //   };
+  // }
+  // fetchInitialStyle() {
+  //   return {
+  //     "color":this.cardTitleColor!=null?this.cardTitleColor:"green"
+  //   };
+  // }
 }
