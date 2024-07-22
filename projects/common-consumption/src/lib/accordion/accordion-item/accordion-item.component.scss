@@ -14,14 +14,14 @@
       // box-shadow: 0 calculateRem(4px) calculateRem(4px) calculateRem(-4px) rgba(var(--rc-rgba-black), 0.25) 0 0 calculateRem(10px) 0 rgba(var(--rc-rgba-black), 0.25);
     }
     &__panel-header {
-      
+    
       background: var(--cc-accordion-panel-header-bg);
-      padding: calculateRem(8px) calculateRem(16px);
+      padding: calculateRem(10px) calculateRem(16px);
       display: flex;
       align-items: center;
       justify-content: space-between;
       cursor: pointer;
-      height: calculateRem(56px);
+      height: auto !important;
       border-radius: calculateRem(4px);
       border: 1px solid var(--cc-accordion-panel-header-br);
     }
