@@ -18,3 +18,21 @@ export const defaultModalContent = {
         },
     ]
 };
+
+export const deleteChildUserModal = {
+    hideCloseButton: false,
+    closeButtonText: '',
+    class: 'sb-modal-primary',
+    contentDescription: 'Are you sure want to delete this User ?',
+    actionButtons: [
+        {
+            text: 'Yes',
+            class: 'popover-color',
+            action: 'yes'
+        },
+        {
+            text: 'No',
+            action: 'no'
+        },
+    ]
+  };

@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ICardClick } from '../models';
 import { config } from 'rxjs';
-
 @Component({
   selector: 'sb-member-card',
   templateUrl: './member-card.component.html',
@@ -60,3 +59,4 @@ export class MemberCardComponent implements OnInit {
  }
 
 }
+

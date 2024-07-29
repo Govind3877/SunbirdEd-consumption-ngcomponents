@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { defaultModalContent } from './confirmation-modal.data';
+import { defaultModalContent, deleteChildUserModal } from './confirmation-modal.data';
 
 @Component({
   selector: 'sb-confirmation-modal',
@@ -8,6 +8,7 @@ import { defaultModalContent } from './confirmation-modal.data';
 })
 export class ConfirmationModalComponent implements OnInit {
   @Input() data = defaultModalContent;
+  @Input() delete = deleteChildUserModal;
   @Output() action = new EventEmitter();
 
 
